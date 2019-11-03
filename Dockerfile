@@ -47,6 +47,8 @@ RUN \
     curl -# -L ${JAVAJRE_URL} | tar -xz --strip 2 -C /opt/jre amazon-corretto-${JAVAJRE_VERSION}-linux-x64/jre && \
     del-pkg build-dependencies
 
+RUN apk add --no-cache bash
+
 # Install dependencies.
 RUN \
     add-pkg \
@@ -61,7 +63,7 @@ RUN \
         ffmpeg \
         # For rtmpdump tool.
         rtmpdump
-
+		
 # Maximize only the main/initial window.
 RUN \
     sed-patch 's/<application type="normal">/<application type="normal" title="JDownloader 2">/' \
