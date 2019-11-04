@@ -48,6 +48,7 @@ RUN \
     del-pkg build-dependencies
 
 RUN apk add --no-cache bash
+RUN apk add --no-cache curl
 
 # Install dependencies.
 RUN \
